@@ -10,11 +10,13 @@ import net.md_5.bungee.api.plugin.Command;
 import net.md_5.bungee.api.plugin.TabExecutor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MainCommand extends Command implements TabExecutor {
 
     String name;
+
     public MainCommand(String name, String permission, String... aliases) {
         super(name, permission, aliases);
         this.name = name;
@@ -67,6 +69,8 @@ public class MainCommand extends Command implements TabExecutor {
                 for (String string : players)
                     if (string.toLowerCase().startsWith(args[0].toLowerCase())) completion.add(string);
             }
+
+            Collections.sort(players);
         }
 
         return completion;
