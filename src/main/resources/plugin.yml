@@ -3,6 +3,8 @@ version: 1.0.0
 main: me.alexprogrammerde.BungeeSudo.Main
 author: AlexProgrammerDE
 permissions:
+  bungeesudo.bypassbypass:
+    description: Permission to bypass the sudo bypass of players.
   bungeesudo.use:
     description: Permission to use the /bungeesudo command.
   bungeesudo.bypass:

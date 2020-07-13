@@ -30,7 +30,7 @@ public class MainCommand extends Command implements TabExecutor {
             } else {
                 ProxiedPlayer player = Main.plugin.getProxy().getPlayer(args[0]);
                 if (player.isConnected()) {
-                    if (player.hasPermission("bungeesudo.bypass")) {
+                    if (player.hasPermission("bungeesudo.bypass") && !sender.hasPermission("bungeesudo.bypassbypass")) {
                         sender.sendMessage(new ComponentBuilder("Sorry this player has a bypass permission. You can't sudo him.").create());
                     } else {
                         StringBuilder message = new StringBuilder();
