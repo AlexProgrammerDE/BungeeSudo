@@ -1,0 +1,9 @@
+name: BungeeSudo
+version: 1.0.0
+main: me.alexprogrammerde.BungeeSudo.Main
+author: AlexProgrammerDE
+permissions:
+  bungeesudo.use:
+    description: Permission to use the /bungeesudo command.
+  bungeesudo.bypass:
+    description: Permission to bypss getting sudoed.
