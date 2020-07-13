@@ -6,12 +6,12 @@
 
         <groupId>me.alexprogrammerde</groupId>
         <artifactId>BungeeSudo</artifactId>
-        <version>1.0.0</version>
+        <version>1.1.0</version>
         <packaging>jar</packaging>
 
         <name>BungeeSudo</name>
 
-        <description>Sudo a player to say something on the connected server.</description>
+        <description>Force players to run commands on their connected server. Works across the whole network.</description>
 
         <build>
             <plugins>

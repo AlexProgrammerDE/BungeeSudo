@@ -15,6 +15,19 @@ public class Main extends Plugin {
 
         logger.info("§aRegistering command");
         getProxy().getPluginManager().registerCommand(this, new MainCommand("bungeesudo", "bungeesudo.use"));
+
+        logger.info("§aEnabling Metrics");
+        int pluginId = 8178; // <-- Replace with the id of your plugin!
+        Metrics metrics = new Metrics(this, pluginId);
+
+        logger.info("Checking for updates");
+        new UpdateChecker(this, 81430).getVersion(version -> {
+            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                logger.info("There is not a new update available.");
+            } else {
+                logger.info("There is a new update available. Its: " + version);
+            }
+        });
     }
 
     @Override
