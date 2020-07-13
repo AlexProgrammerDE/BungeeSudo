@@ -10,8 +10,8 @@ import java.util.function.Consumer;
 
 public class UpdateChecker {
 
-    private Plugin plugin;
-    private int resourceId;
+    private final Plugin plugin;
+    private final int resourceId;
 
     public UpdateChecker(Plugin plugin, int resourceId) {
         this.plugin = plugin;
@@ -25,7 +25,7 @@ public class UpdateChecker {
                     consumer.accept(scanner.next());
                 }
             } catch (IOException exception) {
-                this.plugin.getLogger().info("Cannot look for updates: " + exception.getMessage());
+                this.plugin.getLogger().info("§cCannot look for updates: " + exception.getMessage());
             }
         });
     }

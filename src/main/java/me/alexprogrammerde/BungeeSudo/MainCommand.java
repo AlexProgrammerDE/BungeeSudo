@@ -1,5 +1,6 @@
 package me.alexprogrammerde.BungeeSudo;
 
+import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ComponentBuilder;
@@ -26,14 +27,14 @@ public class MainCommand extends Command implements TabExecutor {
     public void execute(CommandSender sender, String[] args) {
         if (sender.hasPermission("bungeesudo.use")) {
             if (args.length == 0) {
-                sender.sendMessage(new ComponentBuilder("Please use: ").append("/" + name + " player message").event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Click me!").event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + name + " ")).create()))).create());
+                sender.sendMessage(new ComponentBuilder("Please use: ").append("/" + name + " player message").event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Click me!").event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + name + " ")).color(ChatColor.GOLD).create()))).create());
             } else if (args.length == 1) {
-                sender.sendMessage(new ComponentBuilder("Please use: ").append("/" + name + " " + args[0] + " message").event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Click me!").event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + name + " " + args[0] + " ")).create()))).create());
+                sender.sendMessage(new ComponentBuilder("Please use: ").append("/" + name + " " + args[0] + " message").event(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(new ComponentBuilder("Click me!").event(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/" + name + " " + args[0] + " ")).color(ChatColor.GOLD).create()))).create());
             } else {
                 ProxiedPlayer player = Main.plugin.getProxy().getPlayer(args[0]);
                 if (player.isConnected()) {
                     if (player.hasPermission("bungeesudo.bypass") && !sender.hasPermission("bungeesudo.bypassbypass")) {
-                        sender.sendMessage(new ComponentBuilder("Sorry this player has a bypass permission. You can't sudo him.").create());
+                        sender.sendMessage(new ComponentBuilder("Sorry this player has a bypass permission. You can't sudo him.").color(ChatColor.RED).create());
                     } else {
                         StringBuilder message = new StringBuilder();
 
@@ -48,7 +49,7 @@ public class MainCommand extends Command implements TabExecutor {
                         player.chat(message.toString());
                     }
                 } else {
-                    sender.sendMessage(new ComponentBuilder("Sorry this player isn't connected to the proxy.").create());
+                    sender.sendMessage(new ComponentBuilder("Sorry this player isn't connected to the proxy.").color(ChatColor.RED).create());
                 }
             }
         }
